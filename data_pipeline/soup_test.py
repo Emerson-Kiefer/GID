@@ -16,11 +16,19 @@ posts = soup.find_all('POST')
 
 sender_and_message = []
 posters = []
+#get the id of the perpetrator
+predator_id = soup.PREDATOR.SCREENNAME.USERNAME.string
+#and id of victim
+victim_id = soup.VICTIM.SCREENNAME.USERNAME.string
 #Iterate through the list and obtain a list of usernames and strings
 for post in posts:
     poster = post.USERNAME.string
-    #This can be neccesary as occasionally there is no poster if the message is someone disconnecting
-    poster = poster if poster != None else "no poster"
+    if poster == predator_id:
+        poster = "person1"
+    elif poster == victim_id:
+        poster = "person2"
+    else:
+        continue # there is no point in getting a message that is not from either the predator or
     message = post.BODY.string
     #Added this just in case there is no mesage
     message = message if message != None else "no message"
