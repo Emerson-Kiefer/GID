@@ -46,7 +46,7 @@ def write_conversation(sender_and_message, filename):
         f.write(val[0] + " : " + val[1]+"\n")
     f.close()
 
-
+'''
 directory = 'data/GeneralData'
 # iterate over files in
 # that directory
@@ -56,3 +56,4 @@ for filename in os.scandir(directory):
         soup = get_soup(filename.path)
         sender_and_message = get_conversation(soup)
         write_conversation(sender_and_message,filename.name.split(".")[0])
+'''
