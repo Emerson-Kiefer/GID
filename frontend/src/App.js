@@ -20,7 +20,7 @@ return (
         <p>
           Grooming Identification Device
         </p>
-        <Button //upload button 2
+        <Button //upload button
           variant="contained"
           component="label"
         >
