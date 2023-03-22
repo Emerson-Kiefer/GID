@@ -1,25 +1,38 @@
 import logo from './logo.png';
 import './App.css';
+import Button from '@mui/material/Button'; //importing material ui component
+import React, { useState } from "react"; //Source #4
 
-function App() {
-  return (
-    <div className="App">
+const App = () => {
+/* Initial State */
+let [Name, setname] = useState('');
+
+/* The handleChange() function to set a new state for input */
+const handleChange = (event) => {
+	setname(event.target.value);
+}
+
+return (
+	// </>
+      <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Grooming Identification Device
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Button //upload button
+          variant="contained"
+          component="label"
         >
-          Learn React
-        </a>
+        <p>
+          Upload File  
+        </p>
+          <input type="file" onChange={handleChange} />       
+        </Button>
       </header>
     </div>
-  );
+)
 }
 
 export default App;
+
