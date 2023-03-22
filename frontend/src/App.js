@@ -20,7 +20,7 @@ return (
         <p>
           Grooming Identification Device
         </p>
-        <Button //upload button
+        <Button //upload button 2
           variant="contained"
           component="label"
         >
@@ -29,7 +29,7 @@ return (
         </p>
           <input type="file" onChange={handleChange} />       
         </Button>
-      </header>
+      </header> 
     </div>
 )
 }
