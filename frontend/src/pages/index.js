@@ -3,6 +3,7 @@ import logo from "./logo.png";
 import "./App.css";
 import Button from "@mui/material/Button"; //importing material ui component
 import React, { useState } from "react"; //Source #4
+import FileUploadField from "../components/fileUploadField";
 // import Navbar from "./components/Navbar";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // // import Home from "./pages";
@@ -26,13 +27,14 @@ const Home = () => {
         <p>
           <img src={logo} className="App-logo" alt="logo" />
           <p>Grooming Identification Device</p>
-          <Button //upload button
+          {/* <Button //upload button
             variant="contained"
             component="label"
           >
             <p>Upload File</p>
             <input type="file" onChange={handleChange} />
-          </Button>
+          </Button> */}
+          <FileUploadField/>
         </p>
       </header>
     </div>
