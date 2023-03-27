@@ -3,12 +3,11 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper'
 
 
-export default function FileUploadField() {
-  const [files, setFiles] = React.useState([])
+export default function FileUploadField(props) {
 
   const handleFileUpload = (event) => {
     // const newFiles = event.target.files;
-    setFiles(event.target.files);
+    props.setFiles(event.target.files);
   }
 
   const handleDragOver = (event) => {
@@ -18,17 +17,17 @@ export default function FileUploadField() {
   const handleSubmit = (event) => {
     console.log(event.dataTransfer)
     event.preventDefault()
-    setFiles(event.dataTransfer.files);
+    props.setFiles(event.dataTransfer.files);
 
     //upload the files here?
   }
 
   const listFiles = () => {
-    return Array.from(files).map((file, index) => <li key={index}>{file.name}</li>)
+    return Array.from(props.files).map((file, index) => <li key={index}>{file.name}</li>)
   }
 
   return (
-    <Paper>
+    <Paper elevation={3} variant="elevation">
         <div onDragOver={handleDragOver} onDrop={handleSubmit}>
             <input id="file-upload" multiple type="file" onChange={handleFileUpload} hidden/>
             <label htmlFor="file-upload">
@@ -39,7 +38,7 @@ export default function FileUploadField() {
             
             <p>Or drag and drop a file here</p>
             {/* {files && <p>Selected file: {files}</p>} */}
-            <ul>Files: {listFiles()}</ul>
+           {props.files.length > 0 && <ul>Files: {listFiles()}</ul>}
       </div>
   </Paper>
 
