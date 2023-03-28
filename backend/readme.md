@@ -7,27 +7,27 @@
 ## Endpoints to use from frontend
 
 There are two POST endpoints /predict and /mirror
-/predict
-The body of this request should be a json object of the following format:
+/predict \
+The body of this request should be a json object of the following format: \
 {
 "conversation": "string"
 }
-Where conversation contains messages in a two person conversation and changes in speaker are denoted with {-c-s-}. For example:
+Where conversation contains messages in a two person conversation and changes in speaker are denoted with {-c-s-}. For example: \
 {
 "conversation": "hey whats up{-c-s-}not much, you{-c-s-}same same{-c-s-}ok by{-c-s-}goodby"
 }
-The response will be a json object of the following format:
+The response will be a json object of the following format: \
 {
 "pred": 0
 }
-With pred being 0 if grooming is not detected and 1 if grooming is detected.
+With pred being 0 if grooming is not detected and 1 if grooming is detected. \
 
 /mirror
-The body of this request should be a json object of the following format:
+The body of this request should be a json object of the following format: \
 {
 "text": "string"
 }
-The response will be:
+The response will be: \
 {
 "text": "string"
 }
