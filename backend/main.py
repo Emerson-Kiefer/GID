@@ -43,5 +43,13 @@ async def predict_convo(convo: Convo):
     return {"pred": pred}
 
 
+class Text(BaseModel):
+    text: str
+
+
+@app.post("/mirror")
+async def mirror_string(text: Text):
+    return text
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)
