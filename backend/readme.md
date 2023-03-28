@@ -6,7 +6,7 @@
 
 ## Endpoints to use from frontend
 
-There are two POST endpoints /predict and /mirror
+There are two POST endpoints /predict and /mirror\
 /predict \
 The body of this request should be a json object of the following format: \
 `{
