@@ -180,7 +180,7 @@ def model_predict(info, verbose=False, return_probs=False):
 
 def get_conversation_information(convo):
     # so that each entry in the array is a different line of conversation
-    per_line = convo.split("{-s_w-}")
+    per_line = convo.split("{-s-c-}")
     text = ""
     # unfortuantely we don't have the time for these messages so I will just set it to be 0:0
     time_first = "0:0"
