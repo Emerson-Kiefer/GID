@@ -15,7 +15,7 @@ The body of this request should be a json object of the following format: \
 Where conversation contains messages in a two person conversation and changes in speaker are denoted with {-c-s-}. For example: \
 `{
 "conversation": "hey whats up{-c-s-}not much, you{-c-s-}same same{-c-s-}ok by{-c-s-}goodby"
-}`
+}`\
 The response will be a json object of the following format: \
 `{
 "pred": 0
