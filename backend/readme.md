@@ -20,8 +20,7 @@ The response will be a json object of the following format: \
 `{
 "pred": 0
 }`\
-With pred being 0 if grooming is not detected and 1 if grooming is detected. \
-
+With pred being 0 if grooming is not detected and 1 if grooming is detected.\
 /mirror\
 The body of this request should be a json object of the following format: \
 `{
