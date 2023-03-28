@@ -4,8 +4,22 @@ from pydantic import BaseModel
 import uvicorn
 
 from model_predict import predict_from_convo
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
@@ -22,7 +36,7 @@ class Convo(BaseModel):
     conversation: str
 
 
-@app.post("/predict/")
+@app.post("/predict")
 async def predict_convo(convo: Convo):
     conversation = convo.dict()["conversation"]
     pred = predict_from_convo(conversation)

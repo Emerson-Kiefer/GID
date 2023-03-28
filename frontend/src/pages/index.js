@@ -4,6 +4,7 @@ import "./App.css";
 import Button from "@mui/material/Button"; //importing material ui component
 import React, { useState } from "react"; //Source #4
 import FileUploadField from "../components/fileUploadField";
+import PredictButton from "./predict_button";
 
 const Home = () => {
   const [files, setFiles] = useState([]);
@@ -14,9 +15,10 @@ const Home = () => {
         <p>
           <img src={logo} className="App-logo" alt="logo" />
           <p>Grooming Identification Device</p>
-          <FileUploadField files={files} setFiles={setFiles}/>
+          <FileUploadField files={files} setFiles={setFiles} />
         </p>
       </header>
+      <PredictButton></PredictButton>
     </div>
   );
 };
