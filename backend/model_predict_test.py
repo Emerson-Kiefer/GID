@@ -45,5 +45,9 @@ def analyze_files(directory):
     return wrong_files
 
 
-directory = "data/Cleaned_BF-PSR/"
-wrong_files_TP = analyze_files(directory)
+# directory = "data/Cleaned_BF-PSR/"
+# wrong_files_TP = analyze_files(directory)
+
+test = "what's up dadyo when did you get back on Twitter? Haha \nlike 2 weeks ago and it's going as terribly as I remember, but Deg is still hilarious so it's ok\nliterally never about that account, love it."
+test = "what's up dadyo when did you get back on Twitter? Haha{-s_w-}like 2 weeks ago and it's going as terribly as I remember, but Deg is still{-s_w-}hilarious so it's ok{-s_w-}literally never about that account, love it."
+print(predict_from_convo(test))

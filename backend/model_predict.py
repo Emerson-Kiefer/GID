@@ -3,15 +3,15 @@ from utils_functions import *  # the util functions from the paper
 
 # load all the pickle files
 
-model = loading_pkl('data/model_pickle_files/model.pkl')
-psr_weights = loading_pkl('data/model_pickle_files/psr.pkl')
+model = loading_pkl('model_pickle_files/model.pkl')
+psr_weights = loading_pkl('model_pickle_files/psr.pkl')
 sexual_words = loading_pkl(
-    'data/model_pickle_files/augmented_sexual_words.pkl')
-nrc_emotions = loading_pkl("data/model_pickle_files/emotions_nrc.pkl")
+    'model_pickle_files/augmented_sexual_words.pkl')
+nrc_emotions = loading_pkl("model_pickle_files/emotions_nrc.pkl")
 depeche_emotions_lexicon = loading_pkl(
-    "data/model_pickle_files/emotions_depeche.pkl")
+    "model_pickle_files/emotions_depeche.pkl")
 depeche_emotions = processing_depeche_lexicon(depeche_emotions_lexicon)
-emoticons_set = loading_pkl("data/model_pickle_files/emoticons_set.pkl")
+emoticons_set = loading_pkl("model_pickle_files/emoticons_set.pkl")
 
 # I added verbose option to figure out what things should look like
 
@@ -176,3 +176,38 @@ def model_predict(info, verbose=False, return_probs=False):
     else:
         pred = np.argmax(probs)
         return pred
+
+
+def get_conversation_information(convo):
+    # so that each entry in the array is a different line of conversation
+    per_line = convo.split("{-s_w-}")
+    text = ""
+    # unfortuantely we don't have the time for these messages so I will just set it to be 0:0
+    time_first = "0:0"
+    number_participants = 2  # just assuming because we have no other knowledge
+    interaction_words = [0, 0]
+    label = 0
+    total_words = 0
+    for i in range(len(per_line)):
+        message = per_line[i]
+        text += " " + message
+        word_count = len(message.split(" "))
+        total_words += word_count
+        interaction_words[i % 2] += word_count
+    interaction_words[0] /= total_words
+    interaction_words[1] /= total_words
+
+    # we have to pad it because the model expects interaction words to have length 5
+    interaction_words += ([0, 0, 0])
+
+    if len(text) < 5:  # if conversation is basically empty
+        return False
+    return text, time_first, [number_participants], interaction_words, label
+
+# the input should be a string where messages from users are seperated by '\n' newlines
+
+
+def predict_from_convo(conversation):
+    info = get_conversation_information(conversation)
+    # print(info)
+    return model_predict(info)
