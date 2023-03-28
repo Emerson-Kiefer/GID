@@ -210,4 +210,5 @@ def get_conversation_information(convo):
 def predict_from_convo(conversation):
     info = get_conversation_information(conversation)
     # print(info)
-    return model_predict(info)
+    res = model_predict(info)
+    return int(res)

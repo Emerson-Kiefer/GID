@@ -25,5 +25,4 @@ class Convo(BaseModel):
 async def predict_convo(convo: Convo):
     conversation = convo.dict()["conversation"]
     pred = predict_from_convo(conversation)
-    pred = {"pred": pred}
-    return pred
+    return {"pred": pred}
