@@ -1,6 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
+import uvicorn
 
 from model_predict import predict_from_convo
 
@@ -26,3 +27,7 @@ async def predict_convo(convo: Convo):
     conversation = convo.dict()["conversation"]
     pred = predict_from_convo(conversation)
     return {"pred": pred}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
