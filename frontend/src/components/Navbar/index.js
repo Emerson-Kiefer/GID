@@ -7,11 +7,15 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./NavbarElements";
+import Logo from "./logo.png";
 
 const Navbar = () => {
   return (
     <>
       <Nav>
+        <NavLink to="/">
+          <img src={Logo} alt="logo" style={{ height: 50 }} />
+        </NavLink>
         <Bars />
 
         <NavMenu>
@@ -23,9 +27,6 @@ const Navbar = () => {
           </NavLink>
           <NavLink to="/events" activeStyle>
             Events
-          </NavLink>
-          <NavLink to="/annual" activeStyle>
-            Annual Report
           </NavLink>
           <NavLink to="/team" activeStyle>
             Teams
