@@ -1,6 +1,6 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper";
+// import Paper from "@mui/material/Paper";
 
 export default function FileUploadField(props) {
   const handleFileUpload = (event) => {
@@ -27,25 +27,29 @@ export default function FileUploadField(props) {
   };
 
   return (
-    <Paper elevation={3} variant="elevation">
+    <div className="App">
+      {/* <Paper elevation={2} variant="elevation"> */}
       <div onDragOver={handleDragOver} onDrop={handleSubmit}>
-        <input
-          id="file-upload"
-          multiple
-          type="file"
-          onChange={handleFileUpload}
-          hidden
-        />
-        <label htmlFor="file-upload">
-          <Button variant="contained" component="span">
-            Upload File(s)
-          </Button>
-        </label>
+        <header>
+          <input
+            id="file-upload"
+            multiple
+            type="file"
+            onChange={handleFileUpload}
+            hidden
+          />
+          <label htmlFor="file-upload">
+            <Button variant="contained" component="span">
+              Upload File(s)
+            </Button>
+          </label>
 
-        <p>Or drag and drop a file here</p>
-        {/* {files && <p>Selected file: {files}</p>} */}
-        {props.files.length > 0 && <ul>Files: {listFiles()}</ul>}
+          <p>Or drag and drop a file here</p>
+          {/* {files && <p>Selected file: {files}</p>} */}
+          {props.files.length > 0 && <ul>Files: {listFiles()}</ul>}
+        </header>
       </div>
-    </Paper>
+    </div>
+    // </Paper>
   );
 }

@@ -9,18 +9,20 @@ const Home = () => {
 
   return (
     <div className="App">
-      <header>
-        <p>
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Grooming Identification Device</p>
-          <FileUploadField
-            files={files}
-            setFiles={setFiles}
-            className="file-upload"
-          />
-        </p>
-      </header>
-      <PredictButton></PredictButton>
+      <div className="logo-container">
+        <img src={logo} className="App-logo" alt="logo" />
+        <logo-container>
+          <header>
+            <p>Grooming Identification Device</p>
+            <FileUploadField
+              files={files}
+              setFiles={setFiles}
+              className="file-upload"
+            />
+          </header>
+        </logo-container>
+        <PredictButton></PredictButton>
+      </div>
     </div>
   );
 };
