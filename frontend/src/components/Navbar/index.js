@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, NavLink, Bars, NavMenu } from "./NavbarElements";
+import { Nav, NavLink, Bars, NavMenu, Footer } from "./NavbarElements";
 import Logo from "./logo.png";
 
 const Navbar = () => {
@@ -29,6 +29,9 @@ const Navbar = () => {
           </NavLink>
         </NavMenu>
       </Nav>
+      <Footer>
+        <p>&copy; 2023 - All rights reserved</p>
+      </Footer>
     </>
   );
 };
