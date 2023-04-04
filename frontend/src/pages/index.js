@@ -1,8 +1,7 @@
 import logo from "./logo.png";
 import "./App.css";
 import React, { useState } from "react"; //Source #4
-import FileUploadField from "../components/fileUploadField";
-import PredictButton from "./predict_button";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [files, setFiles] = useState([]);
@@ -10,18 +9,16 @@ const Home = () => {
   return (
     <div className="App">
       <div className="logo-container">
+        <p>Welcome to the</p>
         <img src={logo} className="App-logo" alt="logo" />
         <logo-container>
           <header>
-            <p>Grooming Identification Device</p>
-            <FileUploadField
-              files={files}
-              setFiles={setFiles}
-              className="file-upload"
-            />
+            <p>SLOGAN TBD</p>
+            <Link to="/begin">
+              <button className="button">Begin</button>
+            </Link>
           </header>
         </logo-container>
-        <PredictButton></PredictButton>
       </div>
     </div>
   );

@@ -1,0 +1,29 @@
+.about-container {
+  display: flex;
+  align-items: center;
+}
+
+.about-img {
+  width: 400px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.about-text p {
+  margin: 0;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.about-text a {
+  margin-top: auto;
+  color: white;
+}
