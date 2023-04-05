@@ -6,7 +6,8 @@ import Begin from "./pages/begin";
 import AnnualReport from "./pages/annual";
 import Teams from "./pages/team";
 import Blogs from "./pages/blogs";
-import AboutGid from "./components/Navbar/aboutgid";
+import AboutGid from "./pages/aboutgid";
+import AboutUs from "./pages/aboutus";
 
 const App = () => {
   return (
@@ -21,7 +22,8 @@ const App = () => {
             <Route path="/annual" element={<AnnualReport />} />
             <Route path="/team" element={<Teams />} />
             <Route path="/blogs" element={<Blogs />} />
-            <Route path="/about-gid" element={<AboutGid />} />
+            <Route path="/aboutgid" element={<AboutGid />} />
+            <Route path="/aboutus" element={<AboutUs />} />
           </Routes>
         </Router>
       </div>
