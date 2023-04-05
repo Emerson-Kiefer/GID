@@ -1,5 +1,5 @@
 from utils_functions import *  # the util functions from the paper
-
+from file_parsing import get_info_from_xml, get_info_from_facebook_json
 
 # load all the pickle files
 
@@ -212,3 +212,37 @@ def predict_from_convo(conversation):
     # print(info)
     res = model_predict(info)
     return int(res)
+
+
+def predict_from_xml(xml_data):
+    try:
+        info = get_info_from_xml(xml_data)
+        res = model_predict(info)
+        return int(res)
+    except:
+        return "Error parsing file."
+
+
+def predict_from_fb_json(json_data):
+    try:
+        info = get_info_from_facebook_json(json_data)
+        res = model_predict(info)
+        return int(res)
+    except:
+        return "Error parsing file."
+
+
+def brute_predictor(data):  # this will try all the predictors until one works
+    try:
+        info = get_info_from_xml(data)
+        res = model_predict(info)
+        return int(res)
+    except:
+        pass
+    try:
+        info = get_info_from_facebook_json(data)
+        res = model_predict(info)
+        return int(res)
+    except:
+        pass
+    return "Error parsing file."
