@@ -38,6 +38,7 @@ class Convo(BaseModel):
 
 @app.post("/predict")
 async def predict_convo(convo: Convo):
+    # potentially load model here
     conversation = convo.dict()["conversation"]
     pred = predict_from_convo(conversation)
     return {"pred": pred}
