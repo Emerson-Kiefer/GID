@@ -13,7 +13,10 @@ const Home = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <logo-container>
           <header>
-            <p>SLOGAN TBD</p>
+            <p>
+              Defending childhood, one message at a time - with our advanced
+              grooming detection system
+            </p>
             <Link to="/begin">
               <button className="button">Begin</button>
             </Link>

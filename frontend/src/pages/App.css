@@ -27,3 +27,19 @@
 .file-upload {
   background-color: #282c34;
 }
+
+button {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  height: 50px;
+  width: 100px;
+}
+
+p {
+  font-weight: bold;
+  -webkit-text-stroke: 0.09px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

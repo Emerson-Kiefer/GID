@@ -2,6 +2,7 @@ import React from "react";
 import { Nav, NavLink, Bars, NavMenu, Footer } from "./NavbarElements";
 import Logo from "./logo.png";
 import "./nav.css";
+import about from "./aboutgid.js";
 
 const Navbar = () => {
   return (
@@ -19,13 +20,10 @@ const Navbar = () => {
           <div class="dropdown">
             <button class="dropdown">About</button>
             <div class="dropdown-content">
-              <a href="about.html#about">About GID</a>
+              <a href="about">About GID</a>
               <a href="#">About Us</a>
             </div>
           </div>
-          <NavLink to="/about" activeStyle>
-            About
-          </NavLink>
           <NavLink to="/begin" activeStyle>
             Begin
           </NavLink>
