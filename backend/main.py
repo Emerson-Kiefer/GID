@@ -46,12 +46,12 @@ async def predict_convo(convo: Convo):
 @app.post("/api/upload")
 async def upload_files(files: List[UploadFile] = File(...)):
     #handle the file upload here
-    file_names = []
+    file_contents = []
     for file in files:
-        file_names.append(file.filename)
+        # file_names.append(file.filename)
         contents = await file.read()
-        # Process file contents here
-    return {"file_names": file_names}
+        file_contents.append({"name":file.filename, "contents": contents.decode()})
+    return {"files": file_contents}
 
 
 

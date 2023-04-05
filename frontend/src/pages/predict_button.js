@@ -60,7 +60,7 @@ const PredictButton = () => {
     // handle the server response
     if(response.ok) {
       const data = await response.json();
-      setUploadedFiles(data.file_names);
+      setUploadedFiles(data.files);
     } else {
       console.error(response.statusText);
     }
@@ -69,8 +69,11 @@ const PredictButton = () => {
   function renderUploadedFiles(){
     return (
       <ul>
-        {uploadedFiles.map((fileName) =>(
-          <li key={fileName}>{fileName}</li>
+        {uploadedFiles.map((file) =>(
+          <li key={file.name}>
+            <h3>{file.name}</h3>
+            <pre>{file.contents}</pre>
+          </li>
         ))}
       </ul>
     );
