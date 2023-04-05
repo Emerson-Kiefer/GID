@@ -1,5 +1,5 @@
-from typing import Union
-from fastapi import FastAPI
+from typing import Union, List
+from fastapi import FastAPI, File, UploadFile
 from pydantic import BaseModel
 import uvicorn
 
@@ -41,6 +41,17 @@ async def predict_convo(convo: Convo):
     conversation = convo.dict()["conversation"]
     pred = predict_from_convo(conversation)
     return {"pred": pred}
+
+@app.post("/api/upload")
+async def upload_files(files: List[UploadFile] = File(...)):
+    #handle the file upload here
+    file_names = []
+    for file in files:
+        file_names.append(file.filename)
+        contents = await file.read()
+        # Process file contents here
+    return {"file_names": file_names}
+
 
 
 class Text(BaseModel):
