@@ -235,14 +235,15 @@ def predict_from_fb_json(json_data):
 def brute_predictor(data):  # this will try all the predictors until one works
     try:
         info = get_info_from_xml(data)
+
         res = model_predict(info)
         return int(res)
-    except:
-        pass
+    except Exception as e:
+        print(e)
     try:
         info = get_info_from_facebook_json(data)
         res = model_predict(info)
         return int(res)
-    except:
-        pass
+    except Exception as e:
+        print(e)
     return "Error parsing file."
