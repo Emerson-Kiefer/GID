@@ -2,7 +2,8 @@ import logo from "./logo.png";
 import "./App.css";
 import React, { useState } from "react"; //Source #4
 import FileUploadField from "../components/fileUploadField";
-import AnalysisButton from "./analysisButton";
+import AnalysisButton from "../components/analysisButton";
+import AnalysisResultsTable from "../components/analysisResultsTable";
 
 const Home = () => {
   const [files, setFiles] = useState([]);
@@ -23,6 +24,7 @@ const Home = () => {
           </header>
         </logo-container>
         <AnalysisButton files={files} uploadedFiles={uploadedFiles} setUploadedFiles={setUploadedFiles}/>
+        <AnalysisResultsTable uploadedFiles={uploadedFiles}/>
       </div>
     </div>
   );

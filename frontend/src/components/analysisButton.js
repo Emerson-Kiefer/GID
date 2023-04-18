@@ -3,7 +3,6 @@ import React, { useState } from "react"; //Source #4
 import Button from "@mui/material/Button";
 
 const AnalysisButton = (props) => {
-  const [uploadedFiles, setUploadedFiles] = useState([]);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -21,23 +20,10 @@ const AnalysisButton = (props) => {
     // handle the server response
     if(response.ok) {
       const data = await response.json();
-      setUploadedFiles(data.files);
+      props.setUploadedFiles(data.files);
     } else {
       console.error(response.statusText);
     }
-  }
-
-  function renderUploadedFiles(){
-    return (
-      <ul>
-        {uploadedFiles.map((file) =>(
-          <li key={file.name}>
-            <h3>{file.name}</h3>
-            <pre>{file.contents}</pre>
-          </li>
-        ))}
-      </ul>
-    );
   }
 
   return (
@@ -46,7 +32,6 @@ const AnalysisButton = (props) => {
         {/* <input type="file" multiple onChange={handleFileChange} /> */}
         <Button type="submit" variant="contained">Run Analysis</Button>
       </form>
-      {uploadedFiles.length > 0 && renderUploadedFiles()}
     </div>
   );
 };
