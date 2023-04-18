@@ -2,10 +2,11 @@ import logo from "./logo.png";
 import "./App.css";
 import React, { useState } from "react"; //Source #4
 import FileUploadField from "../components/fileUploadField";
-import PredictButton from "./predict_button";
+import AnalysisButton from "./analysisButton";
 
 const Home = () => {
   const [files, setFiles] = useState([]);
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
   return (
     <div className="App">
@@ -21,7 +22,7 @@ const Home = () => {
             />
           </header>
         </logo-container>
-        <PredictButton></PredictButton>
+        <AnalysisButton files={files} uploadedFiles={uploadedFiles} setUploadedFiles={setUploadedFiles}/>
       </div>
     </div>
   );
