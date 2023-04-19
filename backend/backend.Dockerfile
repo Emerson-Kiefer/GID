@@ -12,7 +12,7 @@
 
 FROM python:3
 
-RUN pip install typing fastapi pydantic uvicorn bs4 numpy pandas nltk matplotlib scikit-learn SoMaJo python-multipart lxml
+RUN pip install typing fastapi pydantic uvicorn bs4 numpy pandas nltk matplotlib scikit-learn SoMaJo python-multipart lxml redis
 
 RUN python -m nltk.downloader wordnet
 

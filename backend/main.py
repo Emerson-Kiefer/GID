@@ -6,6 +6,10 @@ import uvicorn
 from model_predict import predict_from_convo, brute_predictor
 from fastapi.middleware.cors import CORSMiddleware
 
+import os
+import redis
+import atexit
+
 app = FastAPI()
 
 origins = [
@@ -20,6 +24,28 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# connect to redis server
+redis_host = os.getenv("REDIS_HOST", "redis")
+r = redis.Redis(host=redis_host, port=6379)
+
+r.setnx("files_analyzed", 0)
+r.setnx("grooming_detected", 0)
+r.setnx("no_grooming_detected", 0)
+r.setnx("unable_to_analyze", 0)
+
+atexit.register(r.save)
+
+# At startup print the values so far
+
+
+def print_redis(r):
+    print("Files analyzed: " + r.get("files_analyzed").decode())
+    print("Number of grooming detected: " +
+          r.get("grooming_detected").decode())
+    print("Number of no grooming detected: " +
+          r.get("no_grooming_detected").decode())
+    print("Number unable to analyze: " + r.get("unable_to_analyze").decode())
 
 
 @app.get("/")
@@ -55,8 +81,17 @@ async def upload_files(files: List[UploadFile] = File(...)):
         pred = brute_predictor(contents)
         file_contents.append(
             {"name": file.filename, "contents": pred})
+        # data storage on redis server
+        r.incr("files_analyzed")
+        if pred == 0:
+            r.incr("no_grooming_detected")
+        elif pred == 1:
+            r.incr("grooming_detected")
+        else:
+            r.incr("unable_to_analyze")
         # file_contents.append(
         #     {"name": file.filename, "contents": contents.decode()})
+    print_redis(r)
     return {"files": file_contents}
 
 
