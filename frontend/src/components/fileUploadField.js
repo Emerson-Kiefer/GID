@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 // import Paper from "@mui/material/Paper";
 
@@ -29,14 +29,20 @@ export default function FileUploadField(props) {
     props.setFiles(fileArray);
   }
 
-  const listFiles = () => {
-    return Array.from(props.files).map((file, index) => (
-      <li key={index}>{file.name}</li>
-    ));
-  };
+  // const listFiles = () => {
+  //   return Array.from(props.files).map((file, index) => (
+  //     <li key={index}>{file.name}</li>
+  //   ));
+  // };
 
   return (
-    <div className="App">
+    <div
+      style={{
+        border: "2px dashed white",
+        display: "inline-block",
+        padding: "10px"
+      }}
+    >
       {/* <Paper elevation={2} variant="elevation"> */}
       <div onDragOver={handleDragOver} onDrop={handleDrop}>
         <header>
@@ -55,11 +61,9 @@ export default function FileUploadField(props) {
 
           <p>Or drag and drop a file here</p>
           {/* {files && <p>Selected file: {files}</p>} */}
-          {props.files.length > 0 && <ul>Files: {listFiles()}</ul>}
+          {/* {props.files.length > 0 && <ul>Files: {listFiles()}</ul>} */}
         </header>
       </div>
-      
     </div>
-    // </Paper>
   );
 }
