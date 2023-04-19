@@ -3,6 +3,7 @@ import "./aboutus.css";
 import erica from "./erica.jpg";
 import emerson from "./emerson.jpeg";
 import aidan from "./aidan.jpeg";
+import jeevitha from "./jeevitha.png";
 
 const images = [
   {
@@ -31,8 +32,8 @@ const images = [
   },
   {
     id: 4,
-    src: "",
-    alt: "Image TBD",
+    src: jeevitha,
+    alt: "Image 4",
     name: "Jeevitha Patel",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna",

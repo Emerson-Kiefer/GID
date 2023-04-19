@@ -3,9 +3,10 @@ import "./HowToPage.css"; // Import CSS for styling
 import step1 from "./step1.jpg";
 import step2 from "./step2.png";
 import step3 from "./step3.jpg";
-import imessage from "./imessage.jpg";
+import imessage from "./imessage.png";
 import messenger from "./messenger.png";
-import twitter from "./twitter.png";
+import whatsapp from "./whatsapp.png";
+import discord from "./discord.png";
 
 const HowToPage = () => {
   return (
@@ -41,13 +42,42 @@ const HowToPage = () => {
       <div className="how-to-description">
         <h2 className="step-title">How to download your messages:</h2>
         <img src={imessage} alt={imessage} className="step-image" />
-        <p className="step-description">IMessage:</p>
-
+        <p>
+          <a
+            href="https://appleinsider.com/inside/imessage/tips/how-to-save-imessage-conversations-as-a-pdf"
+            className="my-link"
+          >
+            Click here for instructions to download IMessages
+          </a>{" "}
+        </p>
         <img src={messenger} alt={messenger} className="step-image" />
-        <p className="step-description">Messenger:</p>
-
-        <img src={twitter} alt={twitter} className="step-image" />
-        <p className="step-description">Twitter:</p>
+        <p>
+          <a
+            href="https://www.remote.tools/remote-work/download-facebook-messenger-conversation"
+            className="my-link"
+          >
+            Click here for instructions to download Facebook Messenger messages
+          </a>{" "}
+        </p>
+        <img src={whatsapp} alt={whatsapp} className="step-image" />
+        <p>
+          <a
+            href="https://faq.whatsapp.com/1180414079177245/?cms_platform=android"
+            className="my-link"
+          >
+            Click here for instructions to download WhatsApp messages (ensure
+            you chose no media)
+          </a>{" "}
+        </p>
+        <img src={discord} alt={discord} className="step-image" />
+        <p>
+          <a
+            href="https://www.groovypost.com/howto/export-discord-chat-messages/"
+            className="my-link"
+          >
+            Click here for instructions to download Discord messages
+          </a>{" "}
+        </p>
       </div>
       <div className="cta-container">
         <h2 className="cta-title">Ready to Get Started?</h2>
