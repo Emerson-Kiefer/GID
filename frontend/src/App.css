@@ -5,6 +5,8 @@
 .App-logo {
   height: 20vmin;
   pointer-events: none;
+  position: center center;
+  min-height: 100vh;
 }
 
 .App-header {

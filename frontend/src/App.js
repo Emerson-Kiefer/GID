@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages";
 import Begin from "./pages/begin";
-import AnnualReport from "./pages/annual";
+import HowTo from "./pages/howto";
 import Teams from "./pages/team";
 import Blogs from "./pages/blogs";
 import AboutGid from "./pages/aboutgid";
@@ -19,7 +19,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/begin" element={<Begin />} />
-            <Route path="/annual" element={<AnnualReport />} />
+            <Route path="/howto" element={<HowTo />} />
             <Route path="/team" element={<Teams />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/aboutgid" element={<AboutGid />} />
