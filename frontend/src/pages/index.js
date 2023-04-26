@@ -20,6 +20,15 @@ const Home = () => {
             <Link to="/begin">
               <button className="button">Begin</button>
             </Link>
+            <p>
+              If this is your first time using GID, click the button below to
+              learn how to use it and what file types GID accepts.
+            </p>
+            <p>
+              <Link to="/howto">
+                <button className="button">How to?</button>
+              </Link>
+            </p>
           </header>
         </logo-container>
       </div>

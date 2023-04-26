@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, NavLink, Bars, NavMenu, Footer } from "./NavbarElements";
+import { Nav, NavLink, Bars, NavMenu } from "./NavbarElements";
 import Logo from "./logo.png";
 import "./nav.css";
 
@@ -20,7 +20,7 @@ const Navbar = () => {
             <button class="dropdown">About</button>
             <div class="dropdown-content">
               <NavLink to="/aboutgid" activeStyle>
-                How To
+                About GID
               </NavLink>
               <NavLink to="/aboutus" activeStyle>
                 About Us
@@ -35,9 +35,6 @@ const Navbar = () => {
           </NavLink>
         </NavMenu>
       </Nav>
-      <Footer>
-        <p>&copy; 2023 - All rights reserved</p>
-      </Footer>
     </>
   );
 };

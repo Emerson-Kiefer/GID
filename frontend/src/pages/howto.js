@@ -7,6 +7,7 @@ import imessage from "./imessage.png";
 import messenger from "./messenger.png";
 import whatsapp from "./whatsapp.png";
 import discord from "./discord.png";
+import { Link } from "react-router-dom";
 
 const HowToPage = () => {
   return (
@@ -20,36 +21,29 @@ const HowToPage = () => {
           <img src={step1} alt="Step 1" className="step-image" />
           <h2 className="step-title">Step 1</h2>
           <p className="step-description">
-            Download your data into an acceptable format. GID can accept .txt
-            only. Below is instructions on how to do so.
+            Download your data into an acceptable format. Below are instructions
+            on how to do so.
           </p>
         </div>
         <div className="step">
           <img src={step2} alt="Step 2" className="step-image" />
           <h2 className="step-title">Step 2</h2>
           <p className="step-description">
-            Drap and Drop or click the chose file on the "Begin" page.
+            Drap and Drop in the space marked by slash-marks or click the chose
+            file on the "Begin" page.
           </p>
         </div>
         <div className="step">
           <img src={step3} alt="Step 3" className="step-image" />
           <h2 className="step-title">Step 3</h2>
           <p className="step-description">
-            Press "Analyze Text" and view your results.
+            Press "Analyze Text" and view your results. For any questions,
+            please feel free to contact us!
           </p>
         </div>
       </div>
       <div className="how-to-description">
         <h2 className="step-title">How to download your messages:</h2>
-        <img src={imessage} alt={imessage} className="step-image" />
-        <p>
-          <a
-            href="https://appleinsider.com/inside/imessage/tips/how-to-save-imessage-conversations-as-a-pdf"
-            className="my-link"
-          >
-            Click here for instructions to download IMessages
-          </a>{" "}
-        </p>
         <img src={messenger} alt={messenger} className="step-image" />
         <p>
           <a
@@ -84,7 +78,10 @@ const HowToPage = () => {
         <p className="cta-description">
           Click here to begin analyzing your file(s)!
         </p>
-        <button className="cta-button">Begin</button>
+
+        <Link to="/begin">
+          <button className="cta-button">Begin</button>
+        </Link>
       </div>
     </div>
   );

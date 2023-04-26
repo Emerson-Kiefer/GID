@@ -49,17 +49,3 @@ export const NavMenu = styled.div`
     display: none;
   }
 `;
-
-export const Footer = styled.footer`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #000000;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
-`;

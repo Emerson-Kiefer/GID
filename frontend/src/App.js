@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages";
 import Begin from "./pages/begin";
 import HowTo from "./pages/howto";
-import Teams from "./pages/team";
-import Blogs from "./pages/blogs";
 import AboutGid from "./pages/aboutgid";
 import AboutUs from "./pages/aboutus";
 
@@ -20,8 +18,6 @@ const App = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/begin" element={<Begin />} />
             <Route path="/howto" element={<HowTo />} />
-            <Route path="/team" element={<Teams />} />
-            <Route path="/blogs" element={<Blogs />} />
             <Route path="/aboutgid" element={<AboutGid />} />
             <Route path="/aboutus" element={<AboutUs />} />
           </Routes>

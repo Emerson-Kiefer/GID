@@ -12,7 +12,7 @@ const images = [
     alt: "Image 1",
     name: "Erica Pickard",
     description:
-      "Erica is a senior at UMass, graduating in May 2023 with a BS in computer science. She is part of the reasearch, UI, and frontend teams.",
+      "Erica is a senior at UMass, graduating in May 2023 with a BS in computer science. She is part of the research, UI, and frontend teams.",
   },
   {
     id: 2,
