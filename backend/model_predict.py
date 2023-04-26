@@ -172,10 +172,10 @@ def model_predict(info, verbose=False, return_probs=False):
 #     print("Label is: ", Y_partial)
 #     print("Predicted label is:", np.argmax(probs))
     if return_probs:
-        return probs
+        return float(np.round(probs[0][1], 4))
     else:
         pred = np.argmax(probs)
-        return pred
+        return int(pred)
 
 
 def get_conversation_information(convo):
@@ -232,18 +232,21 @@ def predict_from_fb_json(json_data):
         return "Error parsing file."
 
 
-def brute_predictor(data):  # this will try all the predictors until one works
+# this will try all the predictors until one works
+def brute_predictor(data, as_percent=False):
+    info = None
+
     try:
         info = get_info_from_xml(data)
 
-        res = model_predict(info)
-        return int(res)
+        res = model_predict(info, return_probs=as_percent)
+        return res
     except Exception as e:
         print(e)
     try:
         info = get_info_from_facebook_json(data)
-        res = model_predict(info)
-        return int(res)
+        res = model_predict(info, return_probs=as_percent)
+        return res
     except Exception as e:
         print(e)
     return "Error parsing file."

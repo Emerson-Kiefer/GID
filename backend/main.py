@@ -78,14 +78,14 @@ async def upload_files(files: List[UploadFile] = File(...)):
         # file_names.append(file.filename)
         contents = await file.read()
         # pred = predict_from_xml(contents)
-        pred = brute_predictor(contents)
+        pred = brute_predictor(contents, as_percent=True)
         file_contents.append(
             {"name": file.filename, "contents": pred})
         # data storage on redis server
         r.incr("files_analyzed")
-        if pred == 0:
+        if type(pred) == float and pred <= 0.5:
             r.incr("no_grooming_detected")
-        elif pred == 1:
+        elif type(pred) == float and pred >= 0.5:
             r.incr("grooming_detected")
         else:
             r.incr("unable_to_analyze")
