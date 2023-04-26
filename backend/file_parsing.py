@@ -81,6 +81,58 @@ def get_conversation_information(soup):
     return conversation, time_first, [number_participants], interaction_words_per_user, label
 
 
+def get_online_conversation_information(soup):
+    online_info = []
+
+    conversation = ""  # we will save the entire conversation text to this string
+    time_first = ""  # store the time of the first message
+    number_participants = -1
+    # each entry of the dictionary will have a counter for how many words that use sent
+    interaction_word_count = {}
+    total_words = 0
+    label = 1  # this is because all the data we are doing is for groomers, but this could be changed in the future
+    posts = soup.find_all('POST')
+    # get the id of the perpetrator
+    predator_id = soup.PREDATOR.SCREENNAME.USERNAME.string
+    # and id of victim
+    victim_id = soup.VICTIM.SCREENNAME.USERNAME.string
+    # initialize the word counts
+    interaction_word_count[predator_id] = 0
+    interaction_word_count[victim_id] = 0
+    # get the start time of conversation
+    time_first = get_first_message_time(posts)
+    # because all of these conversations are between two different people
+    number_participants = 2
+
+    for post in posts:
+        poster = post.USERNAME.string
+        message = post.BODY.string
+        if message == None:
+            continue
+        word_count = len(message.split(" "))
+
+        if poster == predator_id or poster == victim_id:
+            conversation += " " + message
+            total_words += word_count
+            interaction_word_count[poster] += word_count
+
+            interaction_words_per_user = [interaction_word_count[predator_id] /
+                                          total_words, interaction_word_count[victim_id]/total_words]
+
+            # remove newlines from the conversation
+            conversation = conversation.replace('\\n', "")
+            interaction_words_per_user += ([0, 0, 0])
+
+            info = [conversation, time_first, [number_participants],
+                    interaction_words_per_user, label]
+            online_info.append([poster, message, info])
+
+        else:
+            continue  # there is no point in getting a message that is not from either the predator or victim
+
+    return online_info
+
+
 def fb_get_conversation_information(file):
     number_participants = len(file["participants"])  # very easy lol
     conversation = ""
@@ -110,6 +162,12 @@ def fb_get_conversation_information(file):
 
     # label doesn't really matter
     return conversation, time_first, [number_participants], interaction_words, 0
+
+
+def get_online_info_from_xml(file):
+    soup = BeautifulSoup(file, 'xml')
+    online_info = get_online_conversation_information(soup)
+    return online_info
 
 
 def get_info_from_xml(file):

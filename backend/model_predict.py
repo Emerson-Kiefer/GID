@@ -1,5 +1,5 @@
 from utils_functions import *  # the util functions from the paper
-from file_parsing import get_info_from_xml, get_info_from_facebook_json
+from file_parsing import get_info_from_xml, get_info_from_facebook_json, get_online_info_from_xml
 
 # load all the pickle files
 
@@ -212,6 +212,18 @@ def predict_from_convo(conversation):
     # print(info)
     res = model_predict(info)
     return int(res)
+
+
+def online_predict_from_xml(xml_data):
+    try:
+        online_info = get_online_info_from_xml(xml_data)
+        for i in range(len(online_info)):
+            res = model_predict(online_info[i][2], return_probs=True)
+            online_info[i][2] = res
+        return online_info
+    except Exception as e:
+        print(e)
+        return "Error parsing file."
 
 
 def predict_from_xml(xml_data):
