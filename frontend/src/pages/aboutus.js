@@ -12,7 +12,7 @@ const images = [
     alt: "Image 1",
     name: "Erica Pickard",
     description:
-      "Erica is a senior at UMass, graduating in May 2023 with a BS in computer science. She is part of the research, UI, and frontend teams.",
+      "Erica is a senior at UMass, graduating in May 2023 with a BS in computer science with a focus on cybersecurity. She is part of the research, UI, and frontend teams.",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const images = [
     alt: "Image 3",
     name: "Aidan Nuzum-Clark",
     description:
-      "idan is a masters student at UMass studying computer science with a focus on artificial intelligence, graduating in May 2023. He is a member if the backend and research teams",
+      "Aidan is a masters student at UMass studying computer science with a focus on artificial intelligence, graduating in May 2023. He is a member if the backend and research teams",
   },
   {
     id: 4,
