@@ -5,6 +5,10 @@
   border-radius: 25px;
   padding-top: 20px;
   padding-bottom: 20px;
+  max-height: 300px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
 }
 .styled-list {
   list-style: none;
@@ -15,8 +19,19 @@
 .styled-list li {
   position: relative;
   padding-left: 10px;
+  margin: 5px;
 }
-.styled-list li:nth-child(even) {
+.left-sender {
+  padding-left: 10px;
+  text-align: left;
+  padding-right: 0;
+}
+.right-sender {
+  padding-right: 10px;
+  text-align: right;
+  padding-left: 0;
+}
+/* .styled-list li:nth-child(even) {
   padding-right: 10px;
   text-align: right;
   padding-left: 0;
@@ -25,4 +40,4 @@
   padding-left: 10px;
   text-align: left;
   padding-right: 0;
-}
+} */

@@ -1,16 +1,46 @@
 import logo from "./logo.png";
 import "./App.css";
 import "./onlineanalysis.css";
-import React, { useState } from "react"; //Source #4
+import React, { useState, useEffect } from "react"; //Source #4
 import FileUploadField from "../components/fileUploadField";
-import AnalysisButton from "../components/analysisButton";
-import AnalysisResultsTable from "../components/analysisResultsTable";
+import AnalysisButton from "./chatpages/analysisButton";
 import FileUploadDialog from "../components/fileUploadDialog";
 import ChatDisplay from "./chatpages/chatdisplay";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const OnlineAnalysis = () => {
   const [files, setFiles] = useState([]);
-  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [uploadedFiles, setUploadedFiles] = useState("none");
+  const [messageIndex, setMessageIndex] = useState(0);
+  const [messages, setMessages] = useState([]);
+  const [predPercent, setPredPercent] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  const resetMessages = () => {
+    setMessages([]);
+    setMessageIndex(0);
+    setPredPercent(0);
+  };
+
+  //   useEffect(() => {
+  //     setMessages(["Hi bob", "hello Joe", "goodbye bob", "later joe"]);
+  //   }, []);
+
+  const addMessage = () => {
+    if (uploadedFiles != "none") {
+      let online_info = uploadedFiles[0]["online_pred"];
+      if (messageIndex < online_info.length) {
+        console.log(online_info[messageIndex]);
+        const poster = online_info[messageIndex][0];
+        const message = online_info[messageIndex][1];
+        const percent = online_info[messageIndex][2];
+        setMessages((prevState) => [...prevState, [poster, message]]);
+        setPredPercent(percent);
+        setMessageIndex((prevstate) => prevstate + 1);
+      }
+    }
+    // console.log(messages);
+  };
 
   return (
     <div className="App">
@@ -18,7 +48,7 @@ const OnlineAnalysis = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <logo-container>
           <header>
-            <p>Please upload a file to begin for ~online~ analysis :0</p>
+            <p>Please upload a file to begin for ~"online"~ analysis </p>
           </header>
         </logo-container>
         <div className="row">
@@ -32,10 +62,19 @@ const OnlineAnalysis = () => {
             files={files}
             uploadedFiles={uploadedFiles}
             setUploadedFiles={setUploadedFiles}
+            setLoading={setLoading}
+            resetMessages={resetMessages}
           />
+          <div>{loading ? <BeatLoader color="red" /> : ""}</div>
         </div>
-        <ChatDisplay></ChatDisplay>
-        <button>Next</button>
+
+        <ChatDisplay messages={messages} />
+        <div className="row">
+          <button onClick={addMessage}>Next</button>
+          <div>
+            <p>Percentage: {predPercent}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

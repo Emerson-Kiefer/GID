@@ -5,4 +5,25 @@
   border-radius: 15px;
   padding-left: 10px;
   padding-right: 10px;
+  max-width: 400px;
 }
+
+/* .left-sender {
+  background-color: red;
+  color: black;
+  display: inline-block;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 400px;
+}
+
+.right-sender {
+  background-color: aqua;
+  color: black;
+  display: inline-block;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 400px;
+} */
