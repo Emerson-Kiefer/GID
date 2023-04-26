@@ -6,6 +6,7 @@ import Begin from "./pages/begin";
 import HowTo from "./pages/howto";
 import AboutGid from "./pages/aboutgid";
 import AboutUs from "./pages/aboutus";
+import OnlineAnalysis from "./pages/onlineanalysis";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/howto" element={<HowTo />} />
             <Route path="/aboutgid" element={<AboutGid />} />
             <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/onlineAnalysis" element={<OnlineAnalysis />} />
           </Routes>
         </Router>
       </div>
