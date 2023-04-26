@@ -20,7 +20,7 @@ const images = [
     alt: "Image 2",
     name: "Emerson Kiefer",
     description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna",
+      "Emerson is a UMass senior who will pursue his Master's in Computer Science at UMass next year with a focus on artificial intelligence. He is a member of GID's research, UI, and frontend team, contributing to the design and development of the website.",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const images = [
     alt: "Image 3",
     name: "Aidan Nuzum-Clark",
     description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet",
+      "idan is a masters student at UMass studying computer science with a focus on artificial intelligence, graduating in May 2023. He is a member if the backend and research teams",
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const images = [
     alt: "Image 4",
     name: "Jeevitha Patel",
     description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna",
+      "Jeevitha is a master's student at UMass studying computer science (graduating May 2024) with a bachelor's degree in Mechanical Engineering. She is a part of the research and backend teams.",
   },
 ];
 
