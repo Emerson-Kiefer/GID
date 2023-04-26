@@ -15,7 +15,7 @@ const AnalysisResultsTable = (props) => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [sortDirection, setSortDirection] = useState("asc");
   const [sortedBy, setSortedBy] = useState(null);
-  
+
   const handleRowSelect = (event, file) => {
     const selectedFileIndex = selectedRows.findIndex(
       (selectedFile) => selectedFile.name === file.name
@@ -28,13 +28,13 @@ const AnalysisResultsTable = (props) => {
       setSelectedRows(updatedSelectedRows);
     }
   };
-  
+
   const handleSort = (property) => {
     const isAsc = sortedBy === property && sortDirection === "asc";
     setSortDirection(isAsc ? "desc" : "asc");
     setSortedBy(property);
   };
-  
+
   const sortedFiles = props.uploadedFiles.sort((a, b) => {
     if (sortDirection === "asc") {
       return a[sortedBy] > b[sortedBy] ? 1 : -1;
@@ -42,7 +42,7 @@ const AnalysisResultsTable = (props) => {
       return a[sortedBy] < b[sortedBy] ? 1 : -1;
     }
   });
-  
+
   return (
     <div>
       {props.uploadedFiles.length > 0 && (
@@ -79,14 +79,22 @@ const AnalysisResultsTable = (props) => {
                   <TableCell padding="checkbox">
                     <Checkbox
                       checked={
-                        selectedRows.findIndex((selectedFile) => selectedFile.name === file.name) !== -1
+                        selectedRows.findIndex(
+                          (selectedFile) => selectedFile.name === file.name
+                        ) !== -1
                       }
                       onChange={(event) => handleRowSelect(event, file)}
                     />
                   </TableCell>
                   <TableCell>{file.name}</TableCell>
                   <TableCell>
-                    {file.contents === 0 ? ("0") : file.contents === 1 ? ("1") : (<span style={{ color: "red" }}>{file.contents}</span>)}
+                    {file.percentage === 0 ? (
+                      "0"
+                    ) : file.percentage === 1 ? (
+                      "1"
+                    ) : (
+                      <span style={{ color: "red" }}>{file.percentage}</span>
+                    )}
                   </TableCell>
                 </TableRow>
               ))}
@@ -97,5 +105,5 @@ const AnalysisResultsTable = (props) => {
     </div>
   );
 };
-  
+
 export default AnalysisResultsTable;

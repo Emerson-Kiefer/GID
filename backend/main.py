@@ -80,7 +80,7 @@ async def upload_files(files: List[UploadFile] = File(...)):
         # pred = predict_from_xml(contents)
         pred = brute_predictor(contents, as_percent=True)
         file_contents.append(
-            {"name": file.filename, "contents": pred})
+            {"name": file.filename, "percentage": pred})
         # data storage on redis server
         r.incr("files_analyzed")
         if type(pred) == float and pred <= 0.5:
