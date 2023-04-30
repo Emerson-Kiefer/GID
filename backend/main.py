@@ -3,7 +3,7 @@ from fastapi import FastAPI, File, UploadFile
 from pydantic import BaseModel
 import uvicorn
 
-from model_predict import predict_from_convo, brute_predictor, online_predict_from_xml
+from model_predict import predict_from_convo, brute_predictor, online_brute_predictor
 from fastapi.middleware.cors import CORSMiddleware
 
 import os
@@ -78,7 +78,7 @@ async def upload_files(files: List[UploadFile] = File(...)):
         # file_names.append(file.filename)
         contents = await file.read()
         # pred = predict_from_xml(contents)
-        online_pred = online_predict_from_xml(contents)
+        online_pred = online_brute_predictor(contents)
         print(online_pred)
         file_contents.append(
             {"name": file.filename, "online_pred": online_pred})

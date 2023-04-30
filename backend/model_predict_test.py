@@ -57,10 +57,18 @@ def analyze_files(directory):
 filename = "../data/GeneralData/asian_kreationz.xml"
 
 
+# f = open(filename, "r")
+# xml_data = f.read()
+# f.close()
+# online_pred = online_predict_from_xml(xml_data)
+# for val in online_pred:
+#     print(str(val[2]) + " :: " + val[0] + " : " + val[1])
+#     print()
+
 f = open(filename, "r")
-xml_data = f.read()
+json_data = f.read()
 f.close()
-online_pred = online_predict_from_xml(xml_data)
+online_pred = online_predict_from_xml(json_data)
 for val in online_pred:
     print(str(val[2]) + " :: " + val[0] + " : " + val[1])
     print()

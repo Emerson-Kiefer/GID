@@ -1,5 +1,6 @@
+import traceback
 from utils_functions import *  # the util functions from the paper
-from file_parsing import get_info_from_xml, get_info_from_facebook_json, get_online_info_from_xml
+from file_parsing import get_info_from_xml, get_info_from_facebook_json, get_online_info_from_xml, get_online_info_from_fb_json
 
 # load all the pickle files
 
@@ -207,6 +208,9 @@ def get_conversation_information(convo):
 # the input should be a string where messages from users are seperated by '\n' newlines
 
 
+ERROR_STRING = "Error parsing file."
+
+
 def predict_from_convo(conversation):
     info = get_conversation_information(conversation)
     # print(info)
@@ -223,7 +227,7 @@ def online_predict_from_xml(xml_data):
         return online_info
     except Exception as e:
         print(e)
-        return "Error parsing file."
+        return ERROR_STRING
 
 
 def predict_from_xml(xml_data):
@@ -232,7 +236,7 @@ def predict_from_xml(xml_data):
         res = model_predict(info)
         return int(res)
     except:
-        return "Error parsing file."
+        return ERROR_STRING
 
 
 def predict_from_fb_json(json_data):
@@ -241,10 +245,23 @@ def predict_from_fb_json(json_data):
         res = model_predict(info)
         return int(res)
     except:
-        return "Error parsing file."
+        return ERROR_STRING
 
+
+def online_predict_from_fb_json(json_data):
+    try:
+        online_info = get_online_info_from_fb_json(json_data)
+        for i in range(len(online_info)):
+            res = model_predict(online_info[i][2], return_probs=True)
+            online_info[i][2] = res
+        return online_info
+    except Exception as e:
+        print(traceback.format_exc())
+        return ERROR_STRING
 
 # this will try all the predictors until one works
+
+
 def brute_predictor(data, as_percent=False):
     info = None
 
@@ -262,3 +279,14 @@ def brute_predictor(data, as_percent=False):
     except Exception as e:
         print(e)
     return "Error parsing file."
+
+
+def online_brute_predictor(data):
+    online_info = None
+    online_info = online_predict_from_xml(data)
+    if online_info != ERROR_STRING:
+        return online_info
+    online_info = online_predict_from_fb_json(data)
+    if online_info != ERROR_STRING:
+        return online_info
+    return ERROR_STRING

@@ -133,6 +133,41 @@ def get_online_conversation_information(soup):
     return online_info
 
 
+def fb_get_online_conversation_information(file):
+    online_info = []
+
+    number_participants = len(file["participants"])  # very easy lol
+    conversation = ""
+    interaction_words_per_user = {}
+    # initialize the value for each participant to 0 at the start
+    for i in range(number_participants):
+        interaction_words_per_user[file["participants"][i]["name"]] = 0
+    total_words = 0
+    time_first_ms = file["messages"][-1]["timestamp_ms"]
+    time_first = datetime.datetime.fromtimestamp(time_first_ms/1000.0)
+    time_first = str(time_first.hour) + ":" + str(time_first.minute)
+
+    for message in file["messages"]:
+        if "content" in message:
+            text = message["content"]
+            word_count = len(text.split(" "))
+            total_words += word_count
+            conversation += " " + text
+            interaction_words_per_user[message["sender_name"]] += word_count
+
+            interaction_words = []
+            for name, words in interaction_words_per_user.items():
+                interaction_words.append(words/word_count)
+            while len(interaction_words) < 5:
+                interaction_words.append(0)
+            info = [conversation, time_first, [number_participants],
+                    interaction_words, 0]
+
+            online_info.append([message["sender_name"], text, info])
+
+    return online_info[::-1]
+
+
 def fb_get_conversation_information(file):
     number_participants = len(file["participants"])  # very easy lol
     conversation = ""
@@ -180,3 +215,9 @@ def get_info_from_facebook_json(file):
     file = json.loads(file)
     info = fb_get_conversation_information(file)
     return info
+
+
+def get_online_info_from_fb_json(file):
+    file = json.loads(file)
+    online_info = fb_get_online_conversation_information(file)
+    return online_info
