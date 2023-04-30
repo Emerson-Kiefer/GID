@@ -12,7 +12,9 @@ const ChatDisplay = ({ messages }) => {
           return (
             <li
               className={
-                item[0] == firstSender ? "left-sender" : "right-sender"
+                item[0] == firstSender
+                  ? "left-sender-list-item"
+                  : "right-sender-list-item"
               }
             >
               <ChatMessage
