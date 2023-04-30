@@ -30,6 +30,9 @@ const Navbar = () => {
           <NavLink to="/begin" activeStyle>
             Begin
           </NavLink>
+          <NavLink to="/onlineAnalysis" activeStyle>
+            Online Analysis
+          </NavLink>
           <NavLink to="/howto" activeStyle>
             How To
           </NavLink>
