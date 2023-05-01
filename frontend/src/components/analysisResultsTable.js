@@ -9,25 +9,17 @@ import {
   Paper,
   Checkbox,
   TableSortLabel,
+  Button,
+  Grid,
 } from "@mui/material";
+// import ReportIcon from "@mui/icons-material/Report"; //Top threshold
+// import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
+// import ShieldIcon from "@mui/icons-material/Shield";
+// import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 
 const AnalysisResultsTable = (props) => {
-  const [selectedRows, setSelectedRows] = useState([]);
   const [sortDirection, setSortDirection] = useState("asc");
   const [sortedBy, setSortedBy] = useState(null);
-
-  const handleRowSelect = (event, file) => {
-    const selectedFileIndex = selectedRows.findIndex(
-      (selectedFile) => selectedFile.name === file.name
-    );
-    if (event.target.checked && selectedFileIndex === -1) {
-      setSelectedRows([...selectedRows, file]);
-    } else if (!event.target.checked && selectedFileIndex !== -1) {
-      const updatedSelectedRows = [...selectedRows];
-      updatedSelectedRows.splice(selectedFileIndex, 1);
-      setSelectedRows(updatedSelectedRows);
-    }
-  };
 
   const handleSort = (property) => {
     const isAsc = sortedBy === property && sortDirection === "asc";
@@ -44,15 +36,12 @@ const AnalysisResultsTable = (props) => {
   });
 
   return (
-    <div>
+    <Paper style={{ display: "inline-block" }} elevation={3}>
       {props.uploadedFiles.length > 0 && (
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell padding="checkbox">
-                  <Checkbox />
-                </TableCell>
                 <TableCell>
                   <TableSortLabel
                     active={sortedBy === "name"}
@@ -64,45 +53,31 @@ const AnalysisResultsTable = (props) => {
                 </TableCell>
                 <TableCell>
                   <TableSortLabel
-                    active={sortedBy === "contents"}
+                    active={sortedBy === "percentage"}
                     direction={sortDirection}
-                    onClick={() => handleSort("contents")}
+                    onClick={() => handleSort("percentage")}
                   >
-                    File Contents
+                    Risk Percentage
                   </TableSortLabel>
+                </TableCell>
+                <TableCell>
+                  <Button variant="contained" onClick={() => props.setAnalysisViewState("overview")}>Collapse Table</Button>
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {sortedFiles.map((file) => (
                 <TableRow key={file.name}>
-                  <TableCell padding="checkbox">
-                    <Checkbox
-                      checked={
-                        selectedRows.findIndex(
-                          (selectedFile) => selectedFile.name === file.name
-                        ) !== -1
-                      }
-                      onChange={(event) => handleRowSelect(event, file)}
-                    />
-                  </TableCell>
                   <TableCell>{file.name}</TableCell>
-                  <TableCell>
-                    {file.percentage === 0 ? (
-                      "0"
-                    ) : file.percentage === 1 ? (
-                      "1"
-                    ) : (
-                      <span style={{ color: "red" }}>{file.percentage}</span>
-                    )}
-                  </TableCell>
+                  <TableCell>{file.percentage}</TableCell>
+                  <TableCell>{props.getRiskIcon(file.percentage)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
       )}
-    </div>
+    </Paper>
   );
 };
 
