@@ -21,7 +21,10 @@ const AnalysisButton = (props) => {
     if(response.ok) {
       const data = await response.json();
       props.setUploadedFiles(data.files);
+      props.setAnalysisState("idle")
+      props.setAnalysisViewState("overview")
     } else {
+      props.setAnalysisState("error")
       console.error(response.statusText);
     }
   }
@@ -30,7 +33,7 @@ const AnalysisButton = (props) => {
     <div>
       <form onSubmit={handleSubmit}>
         {/* <input type="file" multiple onChange={handleFileChange} /> */}
-        <Button type="submit" variant="contained">Run Analysis</Button>
+        <Button type="submit" variant="contained" onClick={() => {props.setAnalysisViewState("hidden"); props.setAnalysisState("loading")}}>Run Analysis</Button>
       </form>
     </div>
   );
