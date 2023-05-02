@@ -34,7 +34,8 @@ const OnlineAnalysis = () => {
         const poster = online_info[messageIndex][0];
         const message = online_info[messageIndex][1];
         const percent = online_info[messageIndex][2];
-        setMessages((prevState) => [...prevState, [poster, message]]);
+        const poster_id = online_info[messageIndex][3];
+        setMessages((prevState) => [...prevState, [poster, message, poster_id]]);
         setPredPercent(percent);
         setMessageIndex((prevstate) => prevstate + 1);
       }

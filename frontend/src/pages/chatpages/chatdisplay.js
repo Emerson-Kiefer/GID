@@ -9,10 +9,12 @@ const ChatDisplay = ({ messages }) => {
     <div className="chatwindow">
       <ul className="styled-list">
         {messages.map(function (item) {
+          // console.log("This is item");
+          // console.log(item);
           return (
             <li
               className={
-                item[0] == firstSender
+                item[0] != firstSender
                   ? "left-sender-list-item"
                   : "right-sender-list-item"
               }
@@ -20,6 +22,7 @@ const ChatDisplay = ({ messages }) => {
               <ChatMessage
                 message={item[1]}
                 sender={item[0] == firstSender ? "left-sender" : "right-sender"}
+                id = {item[2]}
               />
             </li>
           );

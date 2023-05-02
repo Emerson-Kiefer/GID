@@ -217,6 +217,16 @@ def predict_from_convo(conversation):
     res = model_predict(info)
     return int(res)
 
+def give_id_for_online(online_info):
+    participants = []
+    for i in range(len(online_info)):
+        if online_info[i][0] not in participants: #name not in participants
+            participants.append(online_info[i][0])
+            online_info[i].append(len(participants))
+        else:
+            online_info[i].append(participants.index(online_info[i][0]) + 1)
+    return online_info
+    # now it will be (sender, messge, percent, label)
 
 def online_predict_from_xml(xml_data):
     try:
@@ -285,8 +295,8 @@ def online_brute_predictor(data):
     online_info = None
     online_info = online_predict_from_xml(data)
     if online_info != ERROR_STRING:
-        return online_info
+        return give_id_for_online(online_info)
     online_info = online_predict_from_fb_json(data)
     if online_info != ERROR_STRING:
-        return online_info
+        return give_id_for_online(online_info)
     return ERROR_STRING

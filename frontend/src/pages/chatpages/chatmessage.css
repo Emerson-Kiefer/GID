@@ -8,10 +8,24 @@
   max-width: 400px;
 }
 
-.left-sender {
+._1 {
+  background-color: aqua;
+}
+
+._2 {
   background-color: rgb(243, 100, 100);
 }
 
-.right-sender {
-  background-color: aqua;
+._3 {
+  background-color: rgb(226, 59, 255);
 }
+
+._4 {
+  background-color: rgb(255, 252, 81);
+}
+
+._5 {
+  background-color: rgb(4, 173, 7);
+}
+
+
