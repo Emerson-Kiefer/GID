@@ -50,6 +50,7 @@ const OnlineAnalysis = () => {
         <logo-container>
           <header>
             <p>Please upload a file to begin for ~"online"~ analysis </p>
+            <p>Then press 'analyze'. Once this is done, press 'next' to show each line of the file. The percentage will show how likely that grooming was detected in the previous lines. </p>
           </header>
         </logo-container>
         <div className="row">
