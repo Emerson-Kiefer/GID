@@ -30,7 +30,7 @@ const HowToPage = () => {
           <h2 className="step-title">Step 2</h2>
           <p className="step-description">
             Drap and Drop in the space marked by slash-marks or click the chose
-            file on the "Begin" page.
+            file on the "File(s) Analysis" page. Or you can chose "line-by-line analysis" to import one file and see grooming detection based on each line.
           </p>
         </div>
         <div className="step">
@@ -50,7 +50,7 @@ const HowToPage = () => {
             href="https://www.remote.tools/remote-work/download-facebook-messenger-conversation"
             className="my-link"
           >
-            Click here for instructions to download Facebook Messenger messages
+            Click here for instructions to download Facebook Messenger messages (ensure you choose json instead of html)
           </a>{" "}
         </p>
         <img src={whatsapp} alt={whatsapp} className="step-image" />
@@ -60,7 +60,7 @@ const HowToPage = () => {
             className="my-link"
           >
             Click here for instructions to download WhatsApp messages (ensure
-            you chose no media)
+            you choose no media)
           </a>{" "}
         </p>
         <img src={discord} alt={discord} className="step-image" />

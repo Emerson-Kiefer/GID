@@ -28,10 +28,10 @@ const Navbar = () => {
             </div>
           </div>
           <NavLink to="/begin" activeStyle>
-            Begin
+            File(s) Analysis
           </NavLink>
           <NavLink to="/onlineAnalysis" activeStyle>
-            Online Analysis
+            Line-By-Line Analysis
           </NavLink>
           <NavLink to="/howto" activeStyle>
             How To
