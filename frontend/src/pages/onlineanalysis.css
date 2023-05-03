@@ -3,3 +3,17 @@
   align-items: center;
   justify-content: center;
 }
+
+.percent_box {
+    background-color: rgb(150, 237, 255);
+    border-radius: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    text-shadow: none;
+    width: 150px;
+}
+
+.percent_paragraph {
+    font-size:x-large;
+}

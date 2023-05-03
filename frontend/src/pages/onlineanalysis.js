@@ -73,18 +73,18 @@ const OnlineAnalysis = () => {
         <ChatDisplay messages={messages} />
         <div className="row">
           <button onClick={addMessage}>Next</button>
-          <div className="row">
-            <p>Percentage:</p>
-            <p
+          <div className="row percent_box">
+            <p style={{color:"black"}}>Percentage:</p>
+            <p className="percent_paragraph"
               style={{
                 color: (() => {
-                  if (predPercent < 0.3) return "green";
-                  else if (predPercent < 0.6) return "orange";
+                  if (predPercent < 30) return "green";
+                  else if (predPercent < 60) return "orange";
                   else return "red";
                 })(),
-              }}
+              }}       
             >
-              {predPercent}
+              {predPercent+ "%"}
             </p>
           </div>
         </div>

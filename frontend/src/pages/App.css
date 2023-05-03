@@ -41,5 +41,5 @@ button {
 p {
   font-weight: bold;
   -webkit-text-stroke: 0.09px black;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
