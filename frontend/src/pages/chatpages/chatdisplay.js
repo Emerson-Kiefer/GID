@@ -4,7 +4,7 @@ import "./chatdisplay.css";
 
 const ChatDisplay = ({ messages }) => {
   const firstSender = messages.length > 0 ? messages[0][0] : null;
-  console.log(messages)
+  // console.log(messages)
 
   return (
     <div className="chatwindow">
