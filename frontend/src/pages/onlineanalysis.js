@@ -30,12 +30,12 @@ const OnlineAnalysis = () => {
     if (uploadedFiles !== "none") {
       let online_info = uploadedFiles[0]["online_pred"];
       if (messageIndex < online_info.length) {
-        console.log(online_info[messageIndex]);
+        // console.log(online_info[messageIndex]);
         const poster = online_info[messageIndex][0];
         const message = online_info[messageIndex][1];
-        const percent = online_info[messageIndex][2];
+        const percent = (online_info[messageIndex][2]*100).toFixed();
         const poster_id = online_info[messageIndex][3];
-        setMessages((prevState) => [...prevState, [poster, message, poster_id]]);
+        setMessages((prevState) => [...prevState, [poster, message,percent, poster_id]]);
         setPredPercent(percent);
         setMessageIndex((prevstate) => prevstate + 1);
       }

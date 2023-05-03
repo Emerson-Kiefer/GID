@@ -4,6 +4,7 @@ import "./chatdisplay.css";
 
 const ChatDisplay = ({ messages }) => {
   const firstSender = messages.length > 0 ? messages[0][0] : null;
+  console.log(messages)
 
   return (
     <div className="chatwindow">
@@ -20,9 +21,10 @@ const ChatDisplay = ({ messages }) => {
               }
             >
               <ChatMessage
+                sender={item[0]}
                 message={item[1]}
-                sender={item[0] === firstSender ? "left-sender" : "right-sender"}
-                id = {item[2]}
+                percent={item[2]}
+                id = {item[3]}
               />
             </li>
           );
