@@ -30,7 +30,7 @@ const HowToPage = () => {
           <h2 className="step-title">Step 2</h2>
           <p className="step-description">
             Drap and Drop in the space marked by slash-marks or click the chose
-            file on the "File(s) Analysis" page. Or you can chose "line-by-line analysis" to import one file and see grooming detection based on each line.
+            file on the "File(s) Analysis" page. Or you can chose "Live Analysis" to import one file and see grooming detection based on each line.
           </p>
         </div>
         <div className="step">

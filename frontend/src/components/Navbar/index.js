@@ -31,7 +31,7 @@ const Navbar = () => {
             File(s) Analysis
           </NavLink>
           <NavLink to="/onlineAnalysis" activeStyle>
-            Line-By-Line Analysis
+            Live Analysis
           </NavLink>
           <NavLink to="/howto" activeStyle>
             How To

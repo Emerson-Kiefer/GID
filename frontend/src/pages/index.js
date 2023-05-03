@@ -18,8 +18,13 @@ const Home = () => {
               grooming detection system
             </p>
             <Link to="/begin">
-              <button className="button">Begin</button>
+              <button className="button">File(s) Analysis</button>
             </Link>
+            <p>
+            <Link to="/onlineanalysis">
+              <button className="online">Live Analysis</button>
+            </Link>
+            </p>
             <p>
               If this is your first time using GID, click the button below to
               learn how to use it and what file types GID accepts.
