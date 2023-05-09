@@ -76,12 +76,23 @@ const OnlineAnalysis = () => {
   };
 
   const labels = [...Array(percentArray.length).keys()];
-  console.log(labels);
   const options = {
+    animation: {
+        duration: 0
+    },
     responsive: true,
     plugins: {
       tooltip: {
         enabled: true,
+        callbacks: {
+          title: function (tooltipItem, data) {
+            return messages[tooltipItem[0]["dataIndex"]][1];
+          },
+          label: function (tooltipItem, data) {
+            // console.log(tooltipItem["dataIndex"]);
+            return messages[tooltipItem["dataIndex"]][0];
+          },
+        },
       },
       legend: {
         display: false,
@@ -117,17 +128,17 @@ const OnlineAnalysis = () => {
       },
     ],
   };
-  const hoverValue = {
-    id: "hoverValue",
-    afterDatasetsDraw(chart, args, pluginOptions) {
-      const { ctx, data, options } = chart;
-      chart.getActiveElements().forEach((active) => {
-        console.log("HOOVER");
-        const value = data.datasets[active.datasetIndex].data[active.index];
-        console.log(value);
-      });
-    },
-  };
+//   const hoverValue = {
+//     id: "hoverValue",
+//     afterDatasetsDraw(chart, args, pluginOptions) {
+//       const { ctx, data, options } = chart;
+//       chart.getActiveElements().forEach((active) => {
+//         console.log("HOOVER");
+//         const value = data.datasets[active.datasetIndex].data[active.index];
+//         console.log(value);
+//       });
+//     },
+//   };
 
   return (
     <div className="App">
@@ -164,7 +175,7 @@ const OnlineAnalysis = () => {
           <Line
             options={options}
             data={data}
-            plugins={[hoverValue]}
+            // plugins={[hoverValue]}
             style={{
               backgroundColor: "white",
               maxHeight: "450px",
