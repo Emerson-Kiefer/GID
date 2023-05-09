@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -32,7 +32,7 @@ export default function AnalysisOverview(props) {
   });
 
   const getHighestRisk = (files) => {
-    if (files.length == 0){
+    if (files.length === 0){
       return 0;
     }
     return files.reduce((prev, curr) => (prev.percentage > curr.percentage) ? prev : curr).percentage;

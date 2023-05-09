@@ -1,6 +1,6 @@
 import React from "react";
 import "./aboutgid.css";
-import myPicture from "./umass.jpeg";
+import myPicture from "../assets/images/umass.jpeg";
 
 const AboutPage = () => {
   return (

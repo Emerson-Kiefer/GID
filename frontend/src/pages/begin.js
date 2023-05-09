@@ -1,4 +1,4 @@
-import logo from "./logo.png";
+import logo from "../assets/images/logo.png";
 import "./App.css";
 import React, { useState } from "react"; //Source #4
 import FileUploadField from "../components/fileUploadField";
@@ -49,11 +49,11 @@ const Home = () => {
         </logo-container>
         <FileUploadDialog files={files}/>
         <AnalysisButton files={files} uploadedFiles={uploadedFiles} setUploadedFiles={setUploadedFiles} setAnalysisViewState={setAnalysisViewState} setAnalysisState={setAnalysisState}/>
-        {analysisState == "loading" && <Box sx={{ display: 'flex' }}>
+        {analysisState === "loading" && <Box sx={{ display: 'flex' }}>
           <CircularProgress />
         </Box>}
-        {analysisViewState=="overview" && uploadedFiles.length > 0 && <AnalysisOverview uploadedFiles={uploadedFiles} getRiskIcon={getRiskIcon} setAnalysisViewState={setAnalysisViewState} setAnalysisState={setAnalysisState}/>}
-        {analysisViewState=="table" && uploadedFiles.length > 0 && <AnalysisResultsTable uploadedFiles={uploadedFiles}  getRiskIcon={getRiskIcon} setAnalysisViewState={setAnalysisViewState} setAnalysisState={setAnalysisState}/>}
+        {analysisViewState === "overview" && uploadedFiles.length > 0 && <AnalysisOverview uploadedFiles={uploadedFiles} getRiskIcon={getRiskIcon} setAnalysisViewState={setAnalysisViewState} setAnalysisState={setAnalysisState}/>}
+        {analysisViewState === "table" && uploadedFiles.length > 0 && <AnalysisResultsTable uploadedFiles={uploadedFiles}  getRiskIcon={getRiskIcon} setAnalysisViewState={setAnalysisViewState} setAnalysisState={setAnalysisState}/>}
 
       </div>
     </div>

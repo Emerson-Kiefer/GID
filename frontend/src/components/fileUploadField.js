@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "@mui/material/Button";
-// import Paper from "@mui/material/Paper";
 
 export default function FileUploadField(props) {
   const handleDragOver = (event) => {

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./aboutus.css";
-import erica from "./erica.jpg";
-import emerson from "./emerson.jpeg";
-import aidan from "./aidan.jpeg";
-import jeevitha from "./jeevitha.png";
+import erica from "../assets/images/erica.jpg";
+import emerson from "../assets/images/emerson.jpeg";
+import aidan from "../assets/images/aidan.jpeg";
+import jeevitha from "../assets/images/jeevitha.png";
 
 const images = [
   {

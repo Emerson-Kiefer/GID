@@ -1,10 +1,9 @@
-import logo from "./logo.png";
+import logo from "../assets/images/logo.png";
 import "./App.css";
-import React, { useState } from "react"; //Source #4
+import React from "react"; //Source #4
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [files, setFiles] = useState([]);
 
   return (
     <div className="App">

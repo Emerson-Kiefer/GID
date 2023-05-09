@@ -1,12 +1,12 @@
 import React from "react";
 import "./HowToPage.css"; // Import CSS for styling
-import step1 from "./step1.jpg";
-import step2 from "./step2.png";
-import step3 from "./step3.jpg";
-import imessage from "./imessage.png";
-import messenger from "./messenger.png";
-import whatsapp from "./whatsapp.png";
-import discord from "./discord.png";
+import step1 from "../assets/images/step1.jpg";
+import step2 from "../assets/images/step2.png";
+import step3 from "../assets/images/step3.jpg";
+import imessage from "../assets/images/imessage.png";
+import messenger from "../assets/images/messenger.png";
+import whatsapp from "../assets/images/whatsapp.png";
+import discord from "../assets/images/discord.png";
 import { Link } from "react-router-dom";
 
 const HowToPage = () => {

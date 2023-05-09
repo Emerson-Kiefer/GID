@@ -7,10 +7,8 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Checkbox,
   TableSortLabel,
   Button,
-  Grid,
 } from "@mui/material";
 // import ReportIcon from "@mui/icons-material/Report"; //Top threshold
 // import PriorityHighIcon from "@mui/icons-material/PriorityHigh";

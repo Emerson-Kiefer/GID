@@ -1,7 +1,7 @@
-import logo from "./logo.png";
+import logo from "../assets/images/logo.png";
 import "./App.css";
 import "./onlineanalysis.css";
-import React, { useState, useEffect } from "react"; //Source #4
+import React, { useState } from "react"; //Source #4
 import FileUploadField from "../components/fileUploadField";
 import AnalysisButton from "./chatpages/analysisButton";
 import FileUploadDialog from "../components/fileUploadDialog";
@@ -27,7 +27,7 @@ const OnlineAnalysis = () => {
   //   }, []);
 
   const addMessage = () => {
-    if (uploadedFiles != "none") {
+    if (uploadedFiles !== "none") {
       let online_info = uploadedFiles[0]["online_pred"];
       if (messageIndex < online_info.length) {
         console.log(online_info[messageIndex]);

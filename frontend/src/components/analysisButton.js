@@ -1,5 +1,4 @@
-// import React from "react";
-import React, { useState } from "react"; //Source #4
+import React from "react"; //Source #4
 import Button from "@mui/material/Button";
 
 const AnalysisButton = (props) => {
