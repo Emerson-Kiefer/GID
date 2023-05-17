@@ -49,7 +49,7 @@ const Home = () => {
         </logo-container>
         <FileUploadDialog files={files}/>
         <AnalysisButton files={files} uploadedFiles={uploadedFiles} setUploadedFiles={setUploadedFiles} setAnalysisViewState={setAnalysisViewState} setAnalysisState={setAnalysisState}/>
-        {analysisState === "loading" && <Box sx={{ display: 'flex' }}>
+        {analysisState === "loading" && <Box sx={{ display: 'flex', justifyContent:'center', alignItems:'center' }}>
           <CircularProgress />
         </Box>}
         {analysisViewState === "overview" && uploadedFiles.length > 0 && <AnalysisOverview uploadedFiles={uploadedFiles} getRiskIcon={getRiskIcon} setAnalysisViewState={setAnalysisViewState} setAnalysisState={setAnalysisState}/>}
