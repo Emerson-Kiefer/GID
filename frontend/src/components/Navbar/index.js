@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav, NavLink, Bars, NavMenu } from "./NavbarElements";
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/logo_short.png";
 import "./nav.css";
 
 const Navbar = () => {

@@ -1,4 +1,4 @@
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo_full.png";
 import "./App.css";
 import React from "react"; //Source #4
 import { Link } from "react-router-dom";
@@ -8,8 +8,8 @@ const Home = () => {
   return (
     <div className="App">
       <div className="logo-container">
-        <p>Welcome to the</p>
-        <img src={logo} className="App-logo" alt="logo" />
+        <p>Welcome to</p>
+        <img src={logo} className="App-logo" alt="logo" style={{ width: 900, height: 150}}/>
         <logo-container>
           <header>
             <p>

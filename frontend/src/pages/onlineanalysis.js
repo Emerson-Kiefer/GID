@@ -1,4 +1,4 @@
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo_full.png";
 import "./App.css";
 import "./onlineanalysis.css";
 import React, { useState } from "react"; //Source #4

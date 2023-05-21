@@ -10,7 +10,7 @@ const AboutPage = () => {
         <div className="about-text">
           <h1>About GID</h1>
           <p>
-            GID (Grooming Identification) is a web application created with the
+            GID (Grooming Insight and Detection) is a web application created with the
             goal of assisting with the early detection of child grooming in
             digital communications.{" "}
           </p>
