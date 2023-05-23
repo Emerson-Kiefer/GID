@@ -29,7 +29,7 @@ const HowToPage = () => {
           <img src={step2} alt="Step 2" className="step-image" />
           <h2 className="step-title">Step 2</h2>
           <p className="step-description">
-            Drap and Drop in the space marked by slash-marks or click the chose
+            Drag and Drop in the space marked by slash-marks or click the chose
             file on the "File(s) Analysis" page. Or you can chose "Live Analysis" to import one file and see grooming detection based on each line.
           </p>
         </div>
