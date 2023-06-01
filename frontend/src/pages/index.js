@@ -2,6 +2,8 @@ import logo from "../assets/images/logo_full.png";
 import "./App.css";
 import React from "react"; //Source #4
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
+
 
 const Home = () => {
 
@@ -16,22 +18,22 @@ const Home = () => {
               Defending childhood, one message at a time - with our advanced
               grooming detection system
             </p>
-            <Link to="/begin">
-              <button className="button">File(s) Analysis</button>
-            </Link>
+            <Button component={Link} to="/begin" type="submit" variant="contained">
+              File(s) Analysis
+            </Button>
             <p>
-            <Link to="/onlineanalysis">
-              <button className="online">Live Analysis</button>
-            </Link>
+            <Button component={Link} to="/onlineanalysis" type="submit" variant="contained">
+              Live Analysis
+            </Button>
             </p>
             <p>
               If this is your first time using GID, click the button below to
               learn how to use it and what file types GID accepts.
             </p>
             <p>
-              <Link to="/howto">
-                <button className="button">How to?</button>
-              </Link>
+            <Button component={Link} to="/howto" type="submit" variant="contained">
+              How To?
+            </Button>
             </p>
           </header>
         </logo-container>

@@ -7,6 +7,7 @@ import AnalysisButton from "./chatpages/analysisButton";
 import FileUploadDialog from "../components/fileUploadDialog";
 import ChatDisplay from "./chatpages/chatdisplay";
 import BeatLoader from "react-spinners/BeatLoader";
+import Button from "@mui/material/Button";
 
 //I don't entirely understand what this does but I got it from following a tutorial.
 import {
@@ -185,7 +186,9 @@ const OnlineAnalysis = () => {
           />
         </div>
         <div className="row">
-          <button onClick={addMessage}>Next</button>
+          <Button onClick={addMessage} type="submit" variant="contained">
+              Next
+          </Button>
           <div className="row percent_box">
             <p style={{ color: "black" }}>Percentage:</p>
             <p
